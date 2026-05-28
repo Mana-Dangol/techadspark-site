@@ -8,13 +8,13 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #07080f;
-    --surface: #0e1120;
-    --border: rgba(255,255,255,0.07);
-    --accent: #00e5ff;
+    --bg: #ffffff;
+    --surface: #f8f9fc;
+    --border: #e5e7eb;
+    --accent: #0066ff;
     --accent2: #7b5cfa;
     --accent3: #ff4d6d;
-    --text: #e8eaf6;
+    --text: #111827;
     --muted: #6b7280;
   }
   html { scroll-behavior: smooth; }
@@ -26,17 +26,6 @@
     line-height: 1.8;
     overflow-x: hidden;
   }
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-    z-index: 0;
-  }
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -45,7 +34,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 18px 60px;
-    background: rgba(7,8,15,0.9);
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
   }
@@ -53,7 +42,7 @@
     font-family: 'Syne', sans-serif;
     font-size: 22px;
     font-weight: 800;
-    color: #fff;
+    color: var(--text);
     text-decoration: none;
   }
   .logo span { color: var(--accent); }
@@ -68,7 +57,7 @@
   .nav-links a:hover, .nav-links a.active { color: var(--accent); }
   .nav-cta {
     background: var(--accent);
-    color: #000 !important;
+    color: #fff !important;
     padding: 9px 22px;
     border-radius: 6px;
     font-weight: 600 !important;
@@ -78,8 +67,6 @@
     max-width: 1140px;
     margin: 0 auto;
     padding: 120px 24px 100px;
-    position: relative;
-    z-index: 1;
   }
 
   /* HERO */
@@ -101,17 +88,12 @@
     font-family: 'Syne', sans-serif;
     font-size: clamp(36px, 5vw, 64px);
     font-weight: 800;
-    color: #fff;
+    color: var(--text);
     letter-spacing: -2px;
     line-height: 1.05;
     margin-bottom: 20px;
   }
-  .blog-hero h1 span {
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  .blog-hero h1 span { color: var(--accent); }
   .blog-hero p {
     font-size: 18px;
     color: var(--muted);
@@ -120,13 +102,12 @@
     font-weight: 300;
   }
 
-  /* NEWSLETTER SIGNUP */
+  /* NEWSLETTER */
   .newsletter-bar {
     display: flex;
     gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 8px;
   }
   .newsletter-bar input {
     background: var(--surface);
@@ -143,7 +124,7 @@
   .newsletter-bar input:focus { border-color: var(--accent); }
   .newsletter-bar button {
     background: var(--accent);
-    color: #000;
+    color: #fff;
     border: none;
     border-radius: 8px;
     padding: 12px 24px;
@@ -176,11 +157,11 @@
   }
   .cat-btn:hover, .cat-btn.active {
     background: var(--accent);
-    color: #000;
+    color: #fff;
     border-color: var(--accent);
   }
 
-  /* FEATURED ARTICLE */
+  /* FEATURED */
   .featured-article {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -191,10 +172,10 @@
     border-radius: 24px;
     padding: 48px;
     margin-bottom: 48px;
+    text-decoration: none;
+    transition: box-shadow 0.3s, transform 0.3s;
     position: relative;
     overflow: hidden;
-    text-decoration: none;
-    transition: border-color 0.3s, transform 0.3s;
   }
   .featured-article::before {
     content: '';
@@ -203,11 +184,11 @@
     height: 3px;
     background: linear-gradient(90deg, var(--accent), var(--accent2));
   }
-  .featured-article:hover { border-color: rgba(0,229,255,0.3); transform: translateY(-3px); }
+  .featured-article:hover { box-shadow: 0 8px 40px rgba(0,102,255,0.1); transform: translateY(-3px); }
   .featured-badge {
     display: inline-block;
-    background: rgba(0,229,255,0.1);
-    border: 1px solid rgba(0,229,255,0.2);
+    background: rgba(0,102,255,0.08);
+    border: 1px solid rgba(0,102,255,0.2);
     color: var(--accent);
     font-size: 11px;
     font-weight: 700;
@@ -221,17 +202,12 @@
     font-family: 'Syne', sans-serif;
     font-size: clamp(22px, 3vw, 32px);
     font-weight: 800;
-    color: #fff;
+    color: var(--text);
     letter-spacing: -1px;
     line-height: 1.2;
     margin-bottom: 16px;
   }
-  .featured-article p {
-    color: var(--muted);
-    font-size: 15px;
-    margin-bottom: 24px;
-    line-height: 1.7;
-  }
+  .featured-article p { color: var(--muted); font-size: 15px; margin-bottom: 24px; line-height: 1.7; }
   .article-meta {
     display: flex;
     align-items: center;
@@ -240,7 +216,7 @@
     color: var(--muted);
   }
   .article-meta .tag {
-    background: rgba(123,92,250,0.15);
+    background: rgba(123,92,250,0.1);
     color: var(--accent2);
     padding: 3px 10px;
     border-radius: 4px;
@@ -248,8 +224,8 @@
     font-weight: 600;
   }
   .featured-visual {
-    background: linear-gradient(135deg, rgba(0,229,255,0.08), rgba(123,92,250,0.12));
-    border: 1px solid rgba(0,229,255,0.1);
+    background: linear-gradient(135deg, rgba(0,102,255,0.06), rgba(123,92,250,0.08));
+    border: 1px solid rgba(0,102,255,0.1);
     border-radius: 16px;
     padding: 40px;
     text-align: center;
@@ -264,9 +240,10 @@
     font-weight: 600;
     font-size: 14px;
     text-decoration: none;
+    margin-top: 16px;
   }
 
-  /* ARTICLES GRID */
+  /* GRID */
   .articles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -274,28 +251,18 @@
     margin-bottom: 80px;
   }
   .article-card {
-    background: var(--surface);
+    background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 16px;
     padding: 32px;
     text-decoration: none;
-    transition: border-color 0.3s, transform 0.3s;
+    transition: box-shadow 0.3s, transform 0.3s;
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
   }
-  .article-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .article-card:hover { border-color: rgba(0,229,255,0.2); transform: translateY(-4px); }
-  .article-card:hover::after { opacity: 1; }
+  .article-card:hover { box-shadow: 0 8px 32px rgba(0,102,255,0.08); transform: translateY(-4px); }
   .card-emoji { font-size: 36px; margin-bottom: 20px; display: block; }
   .card-tag {
     font-size: 11px;
@@ -308,23 +275,18 @@
   .tag-ai { color: var(--accent); }
   .tag-tools { color: var(--accent2); }
   .tag-startup { color: #ff4d6d; }
-  .tag-trends { color: #ffd700; }
+  .tag-trends { color: #f59e0b; }
   .article-card h3 {
     font-family: 'Syne', sans-serif;
     font-size: 18px;
     font-weight: 700;
-    color: #fff;
+    color: var(--text);
     letter-spacing: -0.5px;
     line-height: 1.3;
     margin-bottom: 12px;
     flex: 1;
   }
-  .article-card p {
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
+  .article-card p { color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
   .card-meta {
     display: flex;
     justify-content: space-between;
@@ -336,16 +298,11 @@
     margin-top: auto;
   }
   .card-read { color: var(--accent); font-weight: 600; }
-
-  /* COMING SOON CARDS */
-  .coming-soon {
-    opacity: 0.5;
-    pointer-events: none;
-  }
+  .coming-soon { opacity: 0.5; pointer-events: none; }
   .coming-soon-badge {
     position: absolute;
     top: 16px; right: 16px;
-    background: rgba(255,255,255,0.06);
+    background: var(--surface);
     border: 1px solid var(--border);
     color: var(--muted);
     font-size: 10px;
@@ -358,35 +315,21 @@
 
   /* NEWSLETTER SECTION */
   .newsletter-section {
-    background: var(--surface);
+    background: linear-gradient(135deg, rgba(0,102,255,0.04), rgba(123,92,250,0.04));
     border: 1px solid var(--border);
     border-radius: 24px;
     padding: 60px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .newsletter-section::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: linear-gradient(135deg, rgba(0,229,255,0.08), transparent 40%, rgba(123,92,250,0.08));
-    border-radius: 24px;
-    z-index: -1;
   }
   .newsletter-section h2 {
     font-family: 'Syne', sans-serif;
     font-size: 32px;
     font-weight: 800;
-    color: #fff;
+    color: var(--text);
     letter-spacing: -1px;
     margin-bottom: 12px;
   }
-  .newsletter-section p {
-    color: var(--muted);
-    margin-bottom: 32px;
-    font-size: 16px;
-  }
+  .newsletter-section p { color: var(--muted); margin-bottom: 32px; }
 
   footer {
     border-top: 1px solid var(--border);
@@ -396,19 +339,11 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 16px;
-    position: relative;
-    z-index: 1;
   }
   .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
   .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--text); }
+  .footer-links a:hover { color: var(--accent); }
   .footer-copy { font-size: 13px; color: var(--muted); }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .fadein { animation: fadeUp 0.6s ease both; }
 
   @media (max-width: 768px) {
     nav { padding: 16px 20px; }
@@ -434,8 +369,7 @@
 
 <div class="page-wrap">
 
-  <!-- HERO -->
-  <div class="blog-hero fadein">
+  <div class="blog-hero">
     <div class="page-label">TechAdSpark Blog</div>
     <h1>AI & Tech Insights for<br><span>Builders & Founders</span></h1>
     <p>Weekly articles on AI trends, developer tools, startup growth, and the future of tech.</p>
@@ -446,7 +380,6 @@
     <p id="nl-success" style="display:none; color:var(--accent); margin-top:12px; font-size:14px;">✅ You're subscribed! First issue coming soon.</p>
   </div>
 
-  <!-- CATEGORIES -->
   <div class="categories">
     <button class="cat-btn active">All</button>
     <button class="cat-btn">🤖 AI & Machine Learning</button>
@@ -455,7 +388,6 @@
     <button class="cat-btn">📈 Tech Trends</button>
   </div>
 
-  <!-- FEATURED ARTICLE -->
   <a href="blog-post-1.html" class="featured-article">
     <div>
       <div class="featured-badge">⭐ Featured Article</div>
@@ -472,9 +404,7 @@
     <div class="featured-visual">🤖</div>
   </a>
 
-  <!-- ARTICLES GRID -->
   <div class="articles-grid">
-
     <a href="blog-post-1.html" class="article-card">
       <span class="card-emoji">🤖</span>
       <span class="card-tag tag-ai">AI & Machine Learning</span>
@@ -492,10 +422,7 @@
       <span class="card-tag tag-startup">Startup Stories</span>
       <h3>How This Solo Founder Built a $1M ARR SaaS in 12 Months</h3>
       <p>The exact playbook one founder used to go from idea to $1M revenue without VC funding.</p>
-      <div class="card-meta">
-        <span>Coming June 2, 2026</span>
-        <span class="card-read">Soon →</span>
-      </div>
+      <div class="card-meta"><span>Coming June 2, 2026</span><span class="card-read">Soon →</span></div>
     </div>
 
     <div class="article-card coming-soon">
@@ -504,10 +431,7 @@
       <span class="card-tag tag-tools">Developer Tools</span>
       <h3>10 VS Code Extensions That Will Change How You Code</h3>
       <p>The must-have extensions for productivity, debugging, and AI-assisted development in 2026.</p>
-      <div class="card-meta">
-        <span>Coming June 5, 2026</span>
-        <span class="card-read">Soon →</span>
-      </div>
+      <div class="card-meta"><span>Coming June 5, 2026</span><span class="card-read">Soon →</span></div>
     </div>
 
     <div class="article-card coming-soon">
@@ -516,10 +440,7 @@
       <span class="card-tag tag-trends">Tech Trends</span>
       <h3>Why Every Company Will Be an AI Company by 2027</h3>
       <p>The data behind the AI adoption wave and what it means for developers and founders.</p>
-      <div class="card-meta">
-        <span>Coming June 8, 2026</span>
-        <span class="card-read">Soon →</span>
-      </div>
+      <div class="card-meta"><span>Coming June 8, 2026</span><span class="card-read">Soon →</span></div>
     </div>
 
     <div class="article-card coming-soon">
@@ -528,10 +449,7 @@
       <span class="card-tag tag-ai">AI & Machine Learning</span>
       <h3>Claude vs GPT-4 vs Gemini: Which AI is Best for Developers?</h3>
       <p>A hands-on comparison of the top AI models for coding, writing, and reasoning tasks.</p>
-      <div class="card-meta">
-        <span>Coming June 11, 2026</span>
-        <span class="card-read">Soon →</span>
-      </div>
+      <div class="card-meta"><span>Coming June 11, 2026</span><span class="card-read">Soon →</span></div>
     </div>
 
     <div class="article-card coming-soon">
@@ -540,15 +458,10 @@
       <span class="card-tag tag-startup">Startup Stories</span>
       <h3>The Tech Stack Behind Today's Fastest Growing Startups</h3>
       <p>What tools, frameworks, and services the most successful startups are building on in 2026.</p>
-      <div class="card-meta">
-        <span>Coming June 14, 2026</span>
-        <span class="card-read">Soon →</span>
-      </div>
+      <div class="card-meta"><span>Coming June 14, 2026</span><span class="card-read">Soon →</span></div>
     </div>
-
   </div>
 
-  <!-- NEWSLETTER -->
   <div class="newsletter-section">
     <h2>Never Miss an Article</h2>
     <p>Join tech founders and developers getting our weekly digest every Tuesday.</p>
@@ -562,7 +475,7 @@
 </div>
 
 <footer>
-  <a href="index.html" class="logo" style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#fff;text-decoration:none;">Ad<span style="color:var(--accent);">Pulse</span></a>
+  <a href="index.html" class="logo" style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--text);text-decoration:none;">Ad<span style="color:var(--accent);">Pulse</span></a>
   <div class="footer-links">
     <a href="index.html">Home</a>
     <a href="blog.html">Blog</a>
@@ -574,21 +487,18 @@
 </footer>
 
 <script>
-  // Category filter
   document.querySelectorAll('.cat-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     });
   });
-
   function subscribeNewsletter() {
     const email = document.getElementById('nl-email').value;
     if (!email || !email.includes('@')) { alert('Please enter a valid email.'); return; }
     document.getElementById('nl-success').style.display = 'block';
     document.getElementById('nl-email').value = '';
   }
-
   function subscribeNewsletter2() {
     const email = document.getElementById('nl-email-2').value;
     if (!email || !email.includes('@')) { alert('Please enter a valid email.'); return; }

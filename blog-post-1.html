@@ -8,12 +8,12 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #07080f;
-    --surface: #0e1120;
-    --border: rgba(255,255,255,0.07);
-    --accent: #00e5ff;
+    --bg: #ffffff;
+    --surface: #f8f9fc;
+    --border: #e5e7eb;
+    --accent: #0066ff;
     --accent2: #7b5cfa;
-    --text: #e8eaf6;
+    --text: #111827;
     --muted: #6b7280;
   }
   html { scroll-behavior: smooth; }
@@ -25,7 +25,7 @@
     line-height: 1.85;
     overflow-x: hidden;
   }
-  body::before {
+  body::before { display:none;
     content: '';
     position: fixed;
     inset: 0;
@@ -44,7 +44,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 18px 60px;
-    background: rgba(7,8,15,0.9);
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
   }
@@ -52,7 +52,7 @@
     font-family: 'Syne', sans-serif;
     font-size: 22px;
     font-weight: 800;
-    color: #fff;
+    color: var(--text);
     text-decoration: none;
   }
   .logo span { color: var(--accent); }
@@ -100,7 +100,7 @@
     font-family: 'Syne', sans-serif;
     font-size: clamp(28px, 5vw, 48px);
     font-weight: 800;
-    color: #fff;
+    color: var(--text);
     letter-spacing: -1.5px;
     line-height: 1.1;
     margin-bottom: 20px;
@@ -132,7 +132,7 @@
     font-family: 'Syne', sans-serif;
     font-size: 24px;
     font-weight: 800;
-    color: #fff;
+    color: var(--text);
     letter-spacing: -0.5px;
     margin: 48px 0 16px;
   }
@@ -140,7 +140,7 @@
     font-family: 'Syne', sans-serif;
     font-size: 18px;
     font-weight: 700;
-    color: #fff;
+    color: var(--text);
     margin: 32px 0 12px;
   }
   .article-body ul, .article-body ol {
@@ -182,7 +182,7 @@
     font-family: 'Syne', sans-serif;
     font-size: 22px;
     font-weight: 800;
-    color: #fff;
+    color: var(--text);
     margin-bottom: 8px;
     letter-spacing: -0.5px;
   }
@@ -226,7 +226,7 @@
     font-family: 'Syne', sans-serif;
     font-size: 24px;
     font-weight: 800;
-    color: #fff;
+    color: var(--text);
     margin-bottom: 12px;
     letter-spacing: -0.5px;
   }
